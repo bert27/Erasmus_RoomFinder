@@ -17,12 +17,12 @@ Sort by ascending or descending price and search between different types, such a
 
 To run the client, inside the client folder: 
 
-1.npm install   <--- only fisrt time
+1.npm install   <--- only first time
 2.npm start.
 
 To run the server, inside the server folder: 
-1.npm install   <--- only fisrt time
-node index.js or nodemon index.js
+1.npm install   <--- only first time
+2.node index.js or nodemon index.js
 
 --------
 
