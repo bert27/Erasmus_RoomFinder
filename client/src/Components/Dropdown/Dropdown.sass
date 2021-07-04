@@ -1,0 +1,32 @@
+@import "../../styles.sass";
+.Selector
+ width: 100%
+.reactSelect
+ background: white !important 
+ font-family: $fontSecondary
+ margin-top: 4%
+.my-custom-react-select__control 
+ border-width: 1px !important
+ border-color: $colorPrimary  !important
+ padding-top: 0.16rem
+ padding-bottom: 0.16rem
+
+.my-custom-react-select__control--is-focused 
+ border-color: $colorPrimary !important
+ box-shadow: none !important
+ background: white !important
+.my-custom-react-select__menu
+ font-size: 1vw
+.my-custom-react-disabled > .my-custom-react-control 
+ background-color: #e3e1e1
+
+.my-custom-react-select:focus
+ //background-color: $colorPrimary !important
+.my-custom-react-select__indicator-separator 
+ display: none
+ border-color: $colorPrimary !important
+
+/*MVL*/
+@media (max-width: 480px)
+ .my-custom-react-select__menu
+  font-size: 11px

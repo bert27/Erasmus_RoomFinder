@@ -1,0 +1,50 @@
+@import "../../../styles.sass";
+.cardElement_image
+ width: auto
+ height: 100px
+.cardElement_image:hover
+ background: $color5
+.imgTest
+ width: 150px
+ height: 100px
+.imgTest:hover
+ opacity: 0.7
+.cardElement_buttons
+ width: 100%
+ height: auto
+ display: flex
+
+ justify-content: space-between
+.cardElement_column
+ width: 33%
+ display: flex
+ flex-direction: column
+
+.cardElement_description
+ width: 33%
+ font-family: $fontSecondary
+
+.cardElement_buttonsAndPrice
+ height: 100%
+ justify-content: space-between
+.price_cardElement
+ display: flex
+ width: 100%
+ justify-content: flex-end
+ font-weight: 500
+.minheightUI
+ min-height: 70vh
+.price_cardElementc
+ width: auto
+ color: $color3
+ background: black
+ padding: 2%
+ border-radius: 9px
+ margin-right: 11%
+ font-size: $sizeText_l
+  //MVL
+@media (max-width: 480px)
+ .minheightUI
+  min-height: 150px
+  font-size: 15px
+
