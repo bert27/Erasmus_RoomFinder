@@ -10,14 +10,19 @@ Pwa application that allows you to search for rooms for erasmus students.
 
 
 It allows you to filter by city between madrid, barcelona or london.
-sort by ascending or descending price and search between different types, such as apartments or rooms
+Sort by ascending or descending price and search between different types, such as apartments or rooms
 
 
 --------
 
-To run the client, inside the client folder: npm start.
+To run the client, inside the client folder: 
 
-To run the server, inside the server folder: node index.js or nodemon index.js
+1.npm install   <--- only fisrt time
+2.npm start.
+
+To run the server, inside the server folder: 
+1.npm install   <--- only fisrt time
+node index.js or nodemon index.js
 
 --------
 
