@@ -1,3 +1,12 @@
-Server Nodejs.
+# Node Server port 4000
 
-Get and redirect endpoints with cors.
+Execution instructions:
+
+Place with the cmd command in this folder.
+Enter:  nodemon index.js or node index.js
+
+Execution Testing:
+npx mocha
+
+
+*Check that the urls from which you get the data continue to work
