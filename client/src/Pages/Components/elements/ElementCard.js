@@ -4,11 +4,11 @@ export const ElementCard = (props) => {
   const { element } = props;
 
   const moreDetails = useCallback(() => {
-    console.log("moreDetails");
+   // console.log("moreDetails");
   }, []);
 
   const bookNow = useCallback(() => {
-    console.log("bookNow");
+    //console.log("bookNow");
   }, []);
   return (
     <>
