@@ -22,7 +22,7 @@ To run the client, inside the client folder:
 
 To run the server, inside the server folder: 
 1.npm install   <--- only first time
-node index.js or nodemon index.js
+2.node index.js or nodemon index.js
 
 --------
 
