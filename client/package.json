@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "axios-mock-adapter": "^1.19.0",
+    "eslint-plugin-react-hooks": "^4.2.1-alpha-ed6c091fe-20210701",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

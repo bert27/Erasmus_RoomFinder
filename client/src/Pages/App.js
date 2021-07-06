@@ -106,7 +106,7 @@ export const App = () => {
             break;
 
           default:
-            console.log("Error");
+            //console.log("Error");
             break;
         }
       }
