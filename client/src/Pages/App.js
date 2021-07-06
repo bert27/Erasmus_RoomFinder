@@ -1,11 +1,11 @@
 import React, { useCallback, useState, useEffect, useMemo } from "react";
-import { TestService } from "../Services/TestController.service";
+import { ApartmentsService } from "../Services/Apartaments_Controller.service";
 import { Head } from "./Components/head/Head";
 import { FiltersUI } from "./Components/filtersUI/FiltersUI";
 import { Elements } from "./Components/elements/Elements";
-import "./page1.sass";
-
-export const Page1 = (props) => {
+import "./app.sass";
+import "./app.css";
+export const App = () => {
   //Save data get:
   const [data, setdata] = useState(undefined);
   const NumberMaxResults = 30;
@@ -46,11 +46,12 @@ export const Page1 = (props) => {
   const refresh = useCallback(
     (city) => {
       setdata(undefined);
-      TestService.getMarkers(city).then(
+      ApartmentsService.getMarkers(city).then(
         (markers) => {
           prepareNumberMaxResults(markers, NumberMaxResults);
         },
         (error) => {
+          alert(error);
           seterrorServer(true);
         }
       );
@@ -67,12 +68,12 @@ export const Page1 = (props) => {
   const OnchangePropietyType = useCallback(
     (optionChoose) => {
       setdata(undefined);
-      TestService.getApartments_types(optionChoose.value, cityChoose).then(
+      ApartmentsService.getApartments_types(optionChoose.value, cityChoose).then(
         (apartments_types) => {
           prepareNumberMaxResults(apartments_types, NumberMaxResults);
         },
         (error) => {
-          console.log("Error");
+          alert(error);
         }
       );
     },
@@ -145,7 +146,7 @@ export const Page1 = (props) => {
           idsTotal = idsTotal + (marker?.adId + "&ids[]=");
         });
 
-        TestService.getDetailsMarkers(idsTotal).then(
+        ApartmentsService.getDetailsMarkers(idsTotal).then(
           (details) => {
             const result = details?.data?.homecards;
             if (result) {
@@ -173,7 +174,7 @@ export const Page1 = (props) => {
             }
           },
           (error) => {
-            console.log("Error al recuperar los markers");
+            alert(error);
           }
         );
       }

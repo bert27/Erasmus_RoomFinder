@@ -1,10 +1,13 @@
-import React, { useCallback} from "react";
+import React, { useCallback } from "react";
 import { Button } from "../../../Components/Button/Button";
+
+import PropTypes from "prop-types";
+
 export const ElementCard = (props) => {
   const { element } = props;
 
   const moreDetails = useCallback(() => {
-   // console.log("moreDetails");
+    // console.log("moreDetails");
   }, []);
 
   const bookNow = useCallback(() => {
@@ -14,7 +17,11 @@ export const ElementCard = (props) => {
     <>
       <div className="containerMap" data-testid="card">
         <div className="cardElement_image">
-          <img src={element?.photoUrls?.homecard} alt="description" className="imgTest" />
+          <img
+            src={element?.photoUrls?.homecard}
+            alt="description"
+            className="imgTest"
+          />
         </div>
         <div className="cardElement_column cardElement_description">
           {element?.title}
@@ -33,4 +40,8 @@ export const ElementCard = (props) => {
       </div>
     </>
   );
+};
+
+ElementCard.propTypes = {
+  element: PropTypes.object.isRequired,
 };

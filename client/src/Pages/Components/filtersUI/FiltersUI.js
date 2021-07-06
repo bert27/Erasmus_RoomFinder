@@ -2,6 +2,9 @@ import React from "react";
 import { DropdownC } from "../../../Components/Dropdown/Dropdown";
 import { Button } from "../../../Components/Button/Button";
 import "./filtersUI.sass";
+
+import PropTypes from "prop-types";
+
 export const FiltersUI = (props) => {
   const {
     OnchangeoptionChoose,
@@ -25,7 +28,6 @@ export const FiltersUI = (props) => {
               <DropdownC
                 options={optionsCity}
                 OnoptionChoose={OnchangeoptionCity}
-               
               />
             </div>
 
@@ -59,4 +61,15 @@ export const FiltersUI = (props) => {
       </div>
     </>
   );
+};
+
+FiltersUI.propTypes = {
+  OnchangeoptionChoose: PropTypes.func.isRequired,
+  OnchangeoptionCity: PropTypes.func.isRequired,
+  OnchangePropietyType: PropTypes.func.isRequired,
+  optionsPrice: PropTypes.object.isRequired,
+  optionsType: PropTypes.object.isRequired,
+  optionsCity: PropTypes.object.isRequired,
+  downloadJson: PropTypes.func.isRequired,
+  flag: PropTypes.number.isRequired,
 };

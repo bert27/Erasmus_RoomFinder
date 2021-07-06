@@ -1,6 +1,6 @@
 import React from "react";
 import "./head.sass";
-export const Head = (props) => {
+export const Head = () => {
   return (
     <>
       <div className="head">

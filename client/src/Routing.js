@@ -1,18 +1,13 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { App } from "./Pages/App";
 
-} from "react-router-dom";
-import { Page1 } from "./Pages/Page1";
-
-export const Routing = (props) => {
+export const Routing = () => {
   return (
     <>
       <Router>
         <Switch>
-          <Route path="*" to="/" component={() => <Page1 />} />
+          <Route path="*" to="/" component={() => <App />} />
         </Switch>
       </Router>
     </>

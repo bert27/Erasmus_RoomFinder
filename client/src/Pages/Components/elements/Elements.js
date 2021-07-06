@@ -1,7 +1,8 @@
 import React from "react";
 import "./elements.sass";
-
 import { ElementCard } from "./ElementCard";
+import PropTypes from "prop-types";
+
 export const Elements = (props) => {
   const { data, errorServer } = props;
 
@@ -22,7 +23,7 @@ export const Elements = (props) => {
           </div>
         )}
         {!data && !errorServer && (
-       //option Skeleton or Spinner
+          //option Skeleton or Spinner
           <div className="containerMap minheightUI">...Loading</div>
         )}
         {errorServer && (
@@ -31,4 +32,9 @@ export const Elements = (props) => {
       </div>
     </>
   );
+};
+
+Elements.propTypes = {
+  data: PropTypes.object.isRequired,
+  errorServer: PropTypes.bool.isRequired,
 };

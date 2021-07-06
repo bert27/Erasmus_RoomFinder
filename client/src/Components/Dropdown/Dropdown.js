@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useCallback } from "react";
-//import Dropdown from "react-dropdown";
 import "./Dropdown.sass";
 import Select from "react-select";
-//import "react-dropdown/style.css";
+import PropTypes from "prop-types";
+
+
 
 export const DropdownC = (props) => {
   const { options, OnoptionChoose, flag } = props;
@@ -28,7 +29,7 @@ export const DropdownC = (props) => {
 
   const colourStyles = {
     menuPortal: (base) => ({ ...base, zIndex: 9999 }),
-    option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    option: (styles, {isDisabled, isFocused, isSelected }) => {
       // const color = chroma(data.color);
 
       if (isSelected) {
@@ -49,7 +50,7 @@ export const DropdownC = (props) => {
     },
   };
 
-  const getSelectTheme = (theme) => {
+  const getSelectTheme = () => {
     return {
       primary25: "#3E8F32",
       primary50: "#3E8F32",
@@ -100,4 +101,12 @@ export const DropdownC = (props) => {
       />
     </>
   );
+};
+
+
+DropdownC.propTypes = {
+  options: PropTypes.object.isRequired,
+  OnoptionChoose: PropTypes.func.isRequired,
+  flag: PropTypes.number.isRequired,
+
 };

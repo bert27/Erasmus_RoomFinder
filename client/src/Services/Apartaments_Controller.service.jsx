@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const TestService = {
+export const ApartmentsService = {
   getMarkers,
   getDetailsMarkers,
   getApartments_types
@@ -13,7 +13,7 @@ function getApartments_types(option,city) {
     .then((types) => {
       return types;
     }).catch((error) => {
-      console.log("error getApartments_types");
+      alert(error);
     });
 }
 
@@ -23,8 +23,8 @@ function getMarkers(city) {
     .then(handleResponse)
     .then((markers) => {
       return markers;
-    }).catch((error) => {
-      console.log("error getMarkers");
+    }).catch(() => {
+      alert("Servidor sin conexión, ejecuta nodejs");
     });
 }
 
@@ -35,7 +35,7 @@ function getDetailsMarkers(ids) {
     .then((details) => {
       return details;
     }).catch((error) => {
-      console.log("error getDetailsMarkers");
+      alert(error);
     });
 }
 
