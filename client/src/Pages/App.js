@@ -187,6 +187,7 @@ export const App = () => {
       <Head />
       <>
         <div className="PanelUI">
+      
           {/*types and fuctions in props -  Controller*/}
           <FiltersUI
             optionsPrice={optionsPrice}

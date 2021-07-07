@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Button } from "../../../Components/Button/Button";
+import  Button  from "../../../Components/Button/Button";
 
 import PropTypes from "prop-types";
 

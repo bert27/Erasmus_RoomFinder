@@ -1,6 +1,7 @@
 import React from "react";
 import { DropdownC } from "../../../Components/Dropdown/Dropdown";
-import { Button } from "../../../Components/Button/Button";
+
+import Button from "../../../Components/Button/Button";
 import "./filtersUI.sass";
 
 import PropTypes from "prop-types";

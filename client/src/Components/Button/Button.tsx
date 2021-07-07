@@ -1,10 +1,15 @@
-import React, { useCallback } from "react";
+import React, { FunctionComponent,useCallback } from "react";
 import "./Button.sass";
 import PropTypes from "prop-types";
+interface InterfaceButton {
+  name?: string;
+  isSecondary?: boolean;
+  oneButton?: boolean;
+  onclick: () => void;
+}
 
 
-
-export const Button = (props) => {
+const Button: FunctionComponent<InterfaceButton> = (props) => {
   const { name, isSecondary, onclick, oneButton } = props;
 
   const getClassName = useCallback(() => {
@@ -31,6 +36,7 @@ export const Button = (props) => {
     </>
   );
 };
+export default Button;
 
 Button.propTypes = {
   name: PropTypes.string.isRequired,
