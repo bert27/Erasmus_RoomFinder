@@ -47,14 +47,14 @@ export const ElementCard = (props) => {
 
           <div className="cardElement_buttons ">
             {element ? (
-              <Button name={"More details"} onclick={moreDetails} />
+              <Button name={<div className="detailsButton"><div>More </div><div>Details </div></div>} onclick={moreDetails} />
             ) : (
               <div className="button">
                 <Skeleton height={30} />
               </div>
             )}
             {element ? (
-              <Button name={"Book now!"} isSecondary={true} onclick={bookNow} />
+              <Button name={<div className="detailsButton"><div>book </div><div>now </div></div>} isSecondary={true} onclick={bookNow} />
             ) : (
               <div className="button">
                 <Skeleton height={30} />

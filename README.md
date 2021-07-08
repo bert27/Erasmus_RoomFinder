@@ -5,7 +5,7 @@ Erasmus room finder with react and node.
 Pwa application that allows you to search for rooms for erasmus students.
 
 <div classname="center">
-<img src="https://i.ibb.co/vhYVQc8/erasmus-App.jpg" >
+<img src="https://i.ibb.co/HhmZ8Jw/erasmus-App.jpg" >
 </div>
 
 
