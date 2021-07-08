@@ -12,9 +12,15 @@ export const App = () => {
   //----Initial Types:-----
 
   const optionsCity = [
-    { value: "madrid", label: "Madrid" },
-    { value: "barcelona", label: "Barcelona" },
-    { value: "london", label: "London" },
+    { value: "madrid", label: "Madrid", coords: {
+      lat: 40.416775, lng: -3.70379 
+    } },
+    { value: "barcelona", label: "Barcelona",coords: {
+      lat: 41.390205, lng: 2.154007 
+    } },
+    { value: "london", label: "London",coords: {
+      lat: 51.509865, lng: -0.118092
+    } },
   ];
 
   const optionsType = [

@@ -7,7 +7,7 @@ import { StandaloneSearchBoxComponent } from "./components/StandaloneSearchBox";
 import { apiKey } from "./keyGoogleMaps";
 
 export const Map = (props) => {
-  const { coordinatesSitesforMap, cityChoose } = props;
+  const { coordinatesSitesforMap, cityChoose, optionsCity } = props;
   const levelZoomStart = 11;
 
   const [coordinateStart, setcoordinateStart] = useState({
@@ -16,12 +16,6 @@ export const Map = (props) => {
   });
   const [markersView, setmarkersView] = useState(undefined);
   const [markers, setmarkers] = useState([]);
-
-  const optionsCity = [
-    { value: "madrid", label: "Madrid" },
-    { value: "barcelona", label: "Barcelona" },
-    { value: "london", label: "London" },
-  ];
 
   //Options Google Map:
   const defaultOptions = {
@@ -55,13 +49,11 @@ export const Map = (props) => {
   }, [markers]);
 
   useEffect(() => {
-    if (cityChoose === optionsCity[0].value) {
-      setcoordinateStart({ lat: 40.416775, lng: -3.70379 });
-    } else if (cityChoose === optionsCity[1].value) {
-      setcoordinateStart({ lat: 41.390205, lng: 2.154007 });
-    } else if (cityChoose === optionsCity[2].value) {
-      setcoordinateStart({ lat: 51.509865, lng: -0.118092 });
-    }
+    optionsCity.forEach((optionCity) => {
+      if (cityChoose === optionCity.value) {
+        setcoordinateStart(optionCity.coords);
+      }
+    });
   }, [cityChoose]);
 
   useEffect(() => {
@@ -113,4 +105,5 @@ export const Map = (props) => {
 Map.propTypes = {
   coordinatesSitesforMap: PropTypes.object.isRequired,
   cityChoose: PropTypes.string.isRequired,
+  optionsCity: PropTypes.object.isRequired,
 };

@@ -17,15 +17,17 @@ export const FiltersUI = (props) => {
     downloadJson,
     flag,
     coordinatesSitesforMap,
-    cityChoose
+    cityChoose,
   } = props;
-  
-
 
   return (
     <>
       <div className="containerMap_father">
-        <Map coordinatesSitesforMap={coordinatesSitesforMap} cityChoose={cityChoose}/>
+        <Map
+          coordinatesSitesforMap={coordinatesSitesforMap}
+          cityChoose={cityChoose}
+          optionsCity={optionsCity}
+        />
 
         <div className="filterUI">
           <div className="filterUIc">
