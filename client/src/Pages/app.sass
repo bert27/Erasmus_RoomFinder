@@ -1,33 +1,41 @@
 .containerMap_father
  display: flex
- width: 74%
+ width: 40%
  height: auto
  flex-direction: column
- overflow-y: scroll
  height: auto
  background: #ced4da
+.containerMap_fatherc
+ display: flex
+ width: 59%
+ height: auto
+ overflow-y: scroll
+ flex-direction: column
 .containerMap
- width: 93%
+ width: 95%
+ padding: 1% 0% 1% 0%
+ margin: 0% 0% 2% 0%
  padding: 2%
- margin: 1.5%
  border: 1px solid #ced4da
  background: white
  display: flex
  justify-content: space-between
+ z-index: 0
  //align-items: center
 .PanelUI
  display: flex
  width: 100%
  height: auto
  justify-content: space-between
- max-height: 81vh
+ max-height: 87vh
 
   //MVL
 @media (max-width: 480px)
  .web
-  font-size: 12px
+  font-size: 11px
+  background: #dfe3e6
  .title_head
-  font-size: 16px
+  font-size: 14px
  .PanelUI
   flex-direction: column
   //height: 100vh
@@ -36,13 +44,13 @@
   max-height: fit-content
  .filterUI
   width: 96%
-  height: 158px
+  height: 108px
  .navigation_head
   width: 58%
  .containerMap_father
   width: 100%
   margin-top: 2%
-  max-height: 68vh
+
  .cardElement_buttonsAndPrice
   height: 93px
   width: 43% !important
@@ -59,3 +67,7 @@
   height: 81px
  .containerMap
   justify-content: center
+ .containerMap_fatherc
+  width: 100%
+  height: 444px
+  margin-top: 1%

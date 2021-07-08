@@ -8,7 +8,7 @@ export const Elements = (props) => {
 
   return (
     <>
-      <div className="containerMap_father">
+      <div className="containerMap_fatherc">
         {data?.length > 0 && data && (
           <>
             {data.map((element, key) => (

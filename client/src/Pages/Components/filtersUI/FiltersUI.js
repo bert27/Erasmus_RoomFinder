@@ -3,7 +3,7 @@ import { DropdownC } from "../../../Components/Dropdown/Dropdown";
 
 import Button from "../../../Components/Button/Button";
 import "./filtersUI.sass";
-
+import { Map } from "../../../Components/Map/Map";
 import PropTypes from "prop-types";
 
 export const FiltersUI = (props) => {
@@ -20,43 +20,49 @@ export const FiltersUI = (props) => {
 
   return (
     <>
-      <div className="filterUI">
-        <div className="filterUIc">
-          <div className="filterUI_c title_head">Filters:</div>
-          <div className="propieties_filterUI">
-            <div className="filterUI_c">
-              <div className="titleOption">Choose City:</div>
-              <DropdownC
-                options={optionsCity}
-                OnoptionChoose={OnchangeoptionCity}
-              />
+      <div className="containerMap_father">
+        <Map />
+
+        <div className="filterUI">
+          <div className="filterUIc">
+            <div className="filtersdiv">
+              <div className="filterUI_c title_head">Filters:</div>
+              <div className="propieties_filterUI">
+                <div className="filterUI_c">
+                  <div className="titleOption">Choose City:</div>
+                  <DropdownC
+                    options={optionsCity}
+                    OnoptionChoose={OnchangeoptionCity}
+                  />
+                </div>
+
+                <div className="filterUI_c">
+                  <div className="titleOption">Propiety type:</div>
+                  <DropdownC
+                    options={optionsType}
+                    OnoptionChoose={OnchangePropietyType}
+                    flag={flag}
+                  />
+                </div>
+
+                <div className="filterUI_c">
+                  <div className="titleOption">Short by Price:</div>
+                  <DropdownC
+                    options={optionsPrice}
+                    OnoptionChoose={OnchangeoptionChoose}
+                    flag={flag}
+                  />
+                </div>
+              </div>
             </div>
 
-            <div className="filterUI_c">
-              <div className="titleOption">Propiety type:</div>
-              <DropdownC
-                options={optionsType}
-                OnoptionChoose={OnchangePropietyType}
-                flag={flag}
+            <div className="Button_filterUI">
+              <Button
+                name={"Download JSON"}
+                onclick={downloadJson}
+                oneButton={true}
               />
             </div>
-
-            <div className="filterUI_c">
-              <div className="titleOption">Short by Price:</div>
-              <DropdownC
-                options={optionsPrice}
-                OnoptionChoose={OnchangeoptionChoose}
-                flag={flag}
-              />
-            </div>
-          </div>
-
-          <div className="Button_filterUI">
-            <Button
-              name={"Download JSON"}
-              onclick={downloadJson}
-              oneButton={true}
-            />
           </div>
         </div>
       </div>
