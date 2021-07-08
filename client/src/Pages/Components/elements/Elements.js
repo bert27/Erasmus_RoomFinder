@@ -23,8 +23,13 @@ export const Elements = (props) => {
           </div>
         )}
         {!data && !errorServer && (
-          //option Skeleton or Spinner
-          <div className="containerMap minheightUI">...Loading</div>
+          //skeleton
+          <div className="skeletonf">
+            <ElementCard />
+            <ElementCard />
+            <ElementCard />
+            <ElementCard />
+          </div>
         )}
         {errorServer && (
           <div className="containerMap minheightUI">Error in server</div>
