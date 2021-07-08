@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const MarkerComponent = (props) => {
   const { index, name, lat, lng } = props;
   //const clickInMaker = useCallback(() => {
-   // console.log(markertmp);
+  // console.log(markertmp);
   //}, []);
 
   return (

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 export const Elements = (props) => {
   const { data, errorServer } = props;
-
+ 
   return (
     <>
       <div className="containerMap_fatherc">

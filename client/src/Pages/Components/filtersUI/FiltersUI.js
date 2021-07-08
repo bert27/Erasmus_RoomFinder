@@ -16,12 +16,16 @@ export const FiltersUI = (props) => {
     optionsCity,
     downloadJson,
     flag,
+    coordinatesSitesforMap,
+    cityChoose
   } = props;
+  
+
 
   return (
     <>
       <div className="containerMap_father">
-        <Map />
+        <Map coordinatesSitesforMap={coordinatesSitesforMap} cityChoose={cityChoose}/>
 
         <div className="filterUI">
           <div className="filterUIc">
@@ -79,4 +83,6 @@ FiltersUI.propTypes = {
   optionsCity: PropTypes.object.isRequired,
   downloadJson: PropTypes.func.isRequired,
   flag: PropTypes.number.isRequired,
+  coordinatesSitesforMap: PropTypes.object.isRequired,
+  cityChoose: PropTypes.string.isRequired,
 };

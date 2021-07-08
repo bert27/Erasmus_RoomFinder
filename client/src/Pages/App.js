@@ -37,6 +37,7 @@ export const App = () => {
   const [errorServer, seterrorServer] = useState(false);
   //if change city reset others dropdowns
   const [flag, setflag] = useState(0);
+  const [coordinatesSitesforMap, setcoordinatesSitesforMap] = useState([]);
   //load All in Madrid Initial:
   useEffect(() => {
     refresh(cityChoose);
@@ -141,6 +142,7 @@ export const App = () => {
     (markerstmp, numberMax) => {
       if (markerstmp) {
         const markers = markerstmp.data.slice(0, numberMax);
+        setcoordinatesSitesforMap(markers);
         let idsTotal = "";
         markers.forEach((marker) => {
           idsTotal = idsTotal + (marker?.adId + "&ids[]=");
@@ -198,6 +200,8 @@ export const App = () => {
             OnchangeoptionCity={OnchangeoptionCity}
             OnchangePropietyType={OnchangePropietyType}
             flag={flag}
+            coordinatesSitesforMap={coordinatesSitesforMap}
+            cityChoose={cityChoose}
           />
           {/*Visualize cards*/}
           <Elements data={data} errorServer={errorServer} />
