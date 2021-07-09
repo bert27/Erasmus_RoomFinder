@@ -7,7 +7,12 @@ import { StandaloneSearchBoxComponent } from "./components/StandaloneSearchBox";
 import { apiKey } from "./keyGoogleMaps";
 
 export const Map = (props) => {
-  const { coordinatesSitesforMap, cityChoose, optionsCity,navigationToMarkerClick } = props;
+  const {
+    coordinatesSitesforMap,
+    cityChoose,
+    optionsCity,
+    navigationToMarkerClick,
+  } = props;
   const levelZoomStart = 11;
 
   const [coordinateStart, setcoordinateStart] = useState({
@@ -26,7 +31,6 @@ export const Map = (props) => {
     rotateControl: false,
     fullscreenControl: false,
   };
-
 
   // show makers
   //Si se desea que todos los componentes esten en la vista, cambiar a true o false
@@ -81,6 +85,10 @@ export const Map = (props) => {
     [markers]
   );
 
+
+
+
+
   return (
     <div className="marcMap">
       <div className="contentMap">
@@ -96,6 +104,8 @@ export const Map = (props) => {
               id="map"
               options={defaultOptions}
               mapContainerClassName={"map"}
+           
+
             >
               <StandaloneSearchBoxComponent saveMarker={saveMarker} />
               {markersView}

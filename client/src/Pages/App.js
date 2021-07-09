@@ -218,10 +218,8 @@ export const App = () => {
     [optionsPrice, modesort]
   );
   const navigationToMarkerClick = useCallback((id) => {
- 
     setgoToElement(id);
   }, []);
-  navigationToMarkerClick;
 
   return (
     <div className="web">

@@ -9,6 +9,8 @@ export const MarkerComponent = (props) => {
   const clickInMaker = useCallback(() => {
     navigationToMarkerClick(id);
   }, [id]);
+
+
   return (
     <>
       <Marker
@@ -26,6 +28,7 @@ export const MarkerComponent = (props) => {
           lat: lat,
           lng: lng,
         }}
+      
         onClick={() => clickInMaker()}
       />
     </>

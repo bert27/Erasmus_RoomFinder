@@ -4,15 +4,16 @@ import { ElementCard } from "./ElementCard";
 import PropTypes from "prop-types";
 
 export const Elements = (props) => {
-  const { data, errorServer } = props;
- 
+  const { data, errorServer, goToElement } = props;
+
+
   return (
     <>
       <div className="containerMap_fatherc">
         {data?.length > 0 && data && (
           <>
             {data.map((element, key) => (
-              <ElementCard element={element} key={key} />
+              <ElementCard element={element} key={key} goToElement={goToElement} />
             ))}
           </>
         )}
@@ -42,5 +43,5 @@ export const Elements = (props) => {
 Elements.propTypes = {
   data: PropTypes.object.isRequired,
   errorServer: PropTypes.bool.isRequired,
- // goToElement: PropTypes.number.isRequired,
+  goToElement: PropTypes.number.isRequired,
 };

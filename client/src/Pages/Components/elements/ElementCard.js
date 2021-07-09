@@ -1,10 +1,21 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import Button from "../../../Components/Button/Button";
 import Skeleton from "react-loading-skeleton";
 import PropTypes from "prop-types";
 
 export const ElementCard = (props) => {
-  const { element } = props;
+  const { element, goToElement } = props;
+  //select when click in marker map
+  const [cardSelect, setcardSelect] = useState(false);
+  const myRef = useRef(null);
+  useEffect(() => {
+    if (goToElement === element?.adId) {
+      setcardSelect(true);
+      myRef.current.scrollIntoView();
+    } else {
+      setcardSelect(false);
+    }
+  }, [goToElement, element]);
 
   const moreDetails = useCallback(() => {
     // console.log("moreDetails");
@@ -15,7 +26,11 @@ export const ElementCard = (props) => {
   }, []);
   return (
     <>
-      <div className="containerMap" data-testid="card">
+      <div
+        className={cardSelect ? "containerMap cardselect" : "containerMap"}
+        data-testid="card"
+        ref={myRef}
+      >
         {element?.photoUrls ? (
           <div className="cardElement_image">
             <img
@@ -47,14 +62,31 @@ export const ElementCard = (props) => {
 
           <div className="cardElement_buttons ">
             {element ? (
-              <Button name={<div className="detailsButton"><div>More </div><div>Details </div></div>} onclick={moreDetails} />
+              <Button
+                name={
+                  <div className="detailsButton">
+                    <div>More </div>
+                    <div>Details </div>
+                  </div>
+                }
+                onclick={moreDetails}
+              />
             ) : (
               <div className="button">
                 <Skeleton height={30} />
               </div>
             )}
             {element ? (
-              <Button name={<div className="detailsButton"><div>book </div><div>now </div></div>} isSecondary={true} onclick={bookNow} />
+              <Button
+                name={
+                  <div className="detailsButton">
+                    <div>book </div>
+                    <div>now </div>
+                  </div>
+                }
+                isSecondary={true}
+                onclick={bookNow}
+              />
             ) : (
               <div className="button">
                 <Skeleton height={30} />
@@ -69,4 +101,5 @@ export const ElementCard = (props) => {
 
 ElementCard.propTypes = {
   element: PropTypes.object.isRequired,
+  goToElement: PropTypes.number.isRequired,
 };
