@@ -2,9 +2,10 @@ import React, { useCallback, useEffect, useState, useRef } from "react";
 import Button from "../../../Components/Button/Button";
 import Skeleton from "react-loading-skeleton";
 import PropTypes from "prop-types";
-
+import { useHistory } from "react-router-dom";
 export const ElementCard = (props) => {
   const { element, goToElement } = props;
+  const history = useHistory();
   //select when click in marker map
   const [cardSelect, setcardSelect] = useState(false);
   const myRef = useRef(null);
@@ -18,12 +19,12 @@ export const ElementCard = (props) => {
   }, [goToElement, element]);
 
   const moreDetails = useCallback(() => {
-    // console.log("moreDetails");
-  }, []);
+    history.push("/city/" + element.city + "/" + element.adId + "/info");
+  }, [element]);
 
   const bookNow = useCallback(() => {
-    //console.log("bookNow");
-  }, []);
+    history.push("/city/" + element.city + "/" + element.adId + "/buy");
+  }, [element]);
   return (
     <>
       <div
