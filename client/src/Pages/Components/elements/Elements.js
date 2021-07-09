@@ -42,4 +42,5 @@ export const Elements = (props) => {
 Elements.propTypes = {
   data: PropTypes.object.isRequired,
   errorServer: PropTypes.bool.isRequired,
+ // goToElement: PropTypes.number.isRequired,
 };

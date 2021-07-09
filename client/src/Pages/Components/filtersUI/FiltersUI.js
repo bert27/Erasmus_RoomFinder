@@ -18,6 +18,7 @@ export const FiltersUI = (props) => {
     flag,
     coordinatesSitesforMap,
     cityChoose,
+    navigationToMarkerClick
   } = props;
 
   return (
@@ -27,6 +28,7 @@ export const FiltersUI = (props) => {
           coordinatesSitesforMap={coordinatesSitesforMap}
           cityChoose={cityChoose}
           optionsCity={optionsCity}
+          navigationToMarkerClick={navigationToMarkerClick}
         />
 
         <div className="filterUI">
@@ -87,4 +89,5 @@ FiltersUI.propTypes = {
   flag: PropTypes.number.isRequired,
   coordinatesSitesforMap: PropTypes.object.isRequired,
   cityChoose: PropTypes.string.isRequired,
+  navigationToMarkerClick: PropTypes.func.isRequired,
 };

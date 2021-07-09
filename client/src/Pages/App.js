@@ -12,15 +12,30 @@ export const App = () => {
   //----Initial Types:-----
 
   const optionsCity = [
-    { value: "madrid", label: "Madrid", coords: {
-      lat: 40.416775, lng: -3.70379 
-    } },
-    { value: "barcelona", label: "Barcelona",coords: {
-      lat: 41.390205, lng: 2.154007 
-    } },
-    { value: "london", label: "London",coords: {
-      lat: 51.509865, lng: -0.118092
-    } },
+    {
+      value: "madrid",
+      label: "Madrid",
+      coords: {
+        lat: 40.416775,
+        lng: -3.70379,
+      },
+    },
+    {
+      value: "barcelona",
+      label: "Barcelona",
+      coords: {
+        lat: 41.390205,
+        lng: 2.154007,
+      },
+    },
+    {
+      value: "london",
+      label: "London",
+      coords: {
+        lat: 51.509865,
+        lng: -0.118092,
+      },
+    },
   ];
 
   const optionsType = [
@@ -44,6 +59,10 @@ export const App = () => {
   //if change city reset others dropdowns
   const [flag, setflag] = useState(0);
   const [coordinatesSitesforMap, setcoordinatesSitesforMap] = useState([]);
+
+  const [goToElement, setgoToElement] = useState(undefined);
+
+
   //load All in Madrid Initial:
   useEffect(() => {
     refresh(cityChoose);
@@ -75,7 +94,10 @@ export const App = () => {
   const OnchangePropietyType = useCallback(
     (optionChoose) => {
       setdata(undefined);
-      ApartmentsService.getApartments_types(optionChoose.value, cityChoose).then(
+      ApartmentsService.getApartments_types(
+        optionChoose.value,
+        cityChoose
+      ).then(
         (apartments_types) => {
           prepareNumberMaxResults(apartments_types, NumberMaxResults);
         },
@@ -148,7 +170,7 @@ export const App = () => {
     (markerstmp, numberMax) => {
       if (markerstmp) {
         const markers = markerstmp.data.slice(0, numberMax);
-        setcoordinatesSitesforMap(markers);
+
         let idsTotal = "";
         markers.forEach((marker) => {
           idsTotal = idsTotal + (marker?.adId + "&ids[]=");
@@ -156,24 +178,30 @@ export const App = () => {
 
         ApartmentsService.getDetailsMarkers(idsTotal).then(
           (details) => {
-            const result = details?.data?.homecards;
+            let result = details?.data?.homecards;
             if (result) {
-              const objects2 = details?.data.homecards.slice(
-                0,
-                NumberMaxResults
-              );
+              const result = details?.data.homecards.slice(0, NumberMaxResults);
+
+              markers.forEach((marker) => {
+                result.forEach((resultI) => {
+                  if (marker.id === resultI.id) {
+                    resultI.coord = marker.coord;
+                  }
+                });
+              });
+              setcoordinatesSitesforMap(result);
               /* Change of property type taking into account whether 
              the descending or ascending option is selected*/
               if (modesort === optionsPrice[0].value) {
                 setdata(
-                  objects2.sort(
+                  result.sort(
                     (a, b) =>
                       parseFloat(a.pricePerMonth) - parseFloat(b.pricePerMonth)
                   )
                 );
               } else {
                 setdata(
-                  objects2.sort(
+                  result.sort(
                     (a, b) =>
                       parseFloat(b.pricePerMonth) - parseFloat(a.pricePerMonth)
                   )
@@ -189,13 +217,17 @@ export const App = () => {
     },
     [optionsPrice, modesort]
   );
+  const navigationToMarkerClick = useCallback((id) => {
+ 
+    setgoToElement(id);
+  }, []);
+  navigationToMarkerClick;
 
   return (
     <div className="web">
       <Head />
       <>
         <div className="PanelUI">
-      
           {/*types and fuctions in props -  Controller*/}
           <FiltersUI
             optionsPrice={optionsPrice}
@@ -208,9 +240,10 @@ export const App = () => {
             flag={flag}
             coordinatesSitesforMap={coordinatesSitesforMap}
             cityChoose={cityChoose}
+            navigationToMarkerClick={navigationToMarkerClick}
           />
           {/*Visualize cards*/}
-          <Elements data={data} errorServer={errorServer} />
+          <Elements data={data} errorServer={errorServer} goToElement={goToElement} />
         </div>
       </>
     </div>
