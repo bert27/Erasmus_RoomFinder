@@ -12,7 +12,7 @@ Pwa application that allows you to search for rooms for erasmus students.
 It allows you to filter by city between madrid, barcelona or london.
 Sort by ascending or descending price and search between different types, such as apartments or rooms
 
-
+You can view the places on the map and clicking on the markers places you on the corresponding card
 --------
 
 To run the client, inside the client folder: 
